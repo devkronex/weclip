@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>WeClip Agency – Short Form Growth Agency</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter',sans-serif;
+  text-decoration:none;
+}
+html{scroll-behavior:smooth;}
+body{
+  background:#0b0b0f;
+  color:#fff;
+  overflow-x:hidden;
+}
+
+/* Fade animation */
+.fade{
+  opacity:0;
+  transform:translateY(25px);
+  transition:0.8s ease;
+}
+.fade.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* Floating shapes */
+@keyframes floatRotate{
+  0%{transform:translateY(0) rotate(0deg);}
+  50%{transform:translateY(-10px) rotate(10deg);}
+  100%{transform:translateY(0) rotate(0deg);}
+}
+.float-bg{
+  position:absolute;
+  border-radius:50%;
+  opacity:0.07;
+  animation:floatRotate 8s ease-in-out infinite;
+  z-index:0;
+  background:radial-gradient(circle,#22c55e,transparent);
+}
+.float-bg:nth-child(1){width:180px;height:180px;top:12%;left:6%;}
+.float-bg:nth-child(2){width:140px;height:140px;top:55%;right:10%;animation-duration:10s;}
+.float-bg:nth-child(3){width:90px;height:90px;top:82%;left:72%;animation-duration:6s;}
+
+/* Header */
+header{
+  position:fixed;
+  top:0;
+  width:100%;
+  padding:16px 8%;
+  background:rgba(11,11,15,0.9);
+  backdrop-filter:blur(10px);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  z-index:1000;
+}
+header h1{font-weight:800;font-size:22px;}
+nav a{
+  margin-left:22px;
+  color:#9ca3af;
+  transition:.3s;
+}
+nav a:hover{color:#22c55e;}
+
+/* Sections */
+section{
+  padding:70px 8%;
+  position:relative;
+  z-index:1;
+}
+
+/* Hero */
+.hero{text-align:center;padding-top:120px;}
+.hero h2{
+  font-size:46px;
+  font-weight:800;
+  margin-bottom:12px;
+  background:linear-gradient(90deg,#22c55e,#4ade80);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.hero h3{
+  font-size:18px;
+  font-weight:600;
+  margin-bottom:18px;
+  color:#9ca3af;
+}
+.hero p{
+  max-width:900px;
+  margin:auto;
+  font-size:17px;
+  line-height:1.8;
+  color:#cbd5e1;
+}
+
+/* Button */
+.btn{
+  display:inline-block;
+  margin-top:28px;
+  background:linear-gradient(90deg,#22c55e,#16a34a);
+  color:#0b0b0f;
+  padding:14px 36px;
+  border-radius:9px;
+  font-weight:700;
+  transition:.3s;
+}
+.btn:hover{transform:translateY(-2px);}
+
+/* Titles */
+.section-title{
+  text-align:center;
+  font-size:32px;
+  font-weight:800;
+  margin-bottom:40px;
+}
+
+/* Grid */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:24px;
+}
+.card{
+  background:#14141b;
+  padding:28px;
+  border-radius:14px;
+  transition:.35s;
+}
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 12px 28px rgba(34,197,94,0.35);
+}
+.card h3{
+  text-align:center;
+  margin-bottom:10px;
+  color:#86efac;
+}
+.card p{
+  text-align:center;
+  color:#b0b0b0;
+  font-size:15px;
+  line-height:1.75;
+}
+
+/* FAQ */
+.faq{
+  max-width:920px;
+  margin:auto;
+}
+.faq-item{
+  background:#14141b;
+  padding:26px;
+  border-radius:14px;
+  margin-bottom:18px;
+}
+.faq-item h4{
+  margin-bottom:10px;
+  color:#86efac;
+}
+.faq-item p{
+  color:#cbd5e1;
+  font-size:15px;
+  line-height:1.8;
+}
+
+/* Reviews */
+.testimonials{
+  max-width:900px;
+  margin:auto;
+}
+.testimonial{
+  background:#14141b;
+  padding:34px;
+  border-radius:14px;
+  margin-bottom:20px;
+  text-align:center;
+}
+.testimonial p{
+  color:#cbd5e1;
+  font-style:italic;
+  font-size:15px;
+  line-height:1.8;
+}
+.testimonial h4{
+  margin-top:14px;
+  color:#9ca3af;
+  font-size:14px;
+}
+
+/* Booking */
+.booking{
+  text-align:center;
+}
+.booking p{
+  font-size:20px;
+  margin-top:14px;
+  font-weight:800;
+  color:#e5e7eb;
+}
+
+/* Footer */
+footer{
+  text-align:center;
+  padding:30px;
+  color:#6b7280;
+  font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="float-bg"></div>
+<div class="float-bg"></div>
+<div class="float-bg"></div>
+
+<header>
+  <h1>WeClip Agency</h1>
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#why">Why Us</a>
+    <a href="#work">Why Work With Us</a>
+    <a href="#faqs">FAQs</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#booking">Book</a>
+  </nav>
+</header>
+
+<section class="hero fade">
+  <h2>WeClip – The Only Clipping Agency You’ll Need</h2>
+  <h3>Professional Short-Form Content Repurposing</h3>
+  <p>
+    WeClip Agency is a dedicated short-form content clipping agency focused entirely on
+    transforming long-form content into high-performing short-form videos. We help creators,
+    podcasts, and brands stay consistent and visible across TikTok, Instagram Reels, and
+    YouTube Shorts. Our process focuses on retention, clarity, and organic reach — allowing
+    you to grow without wasting money on ads or managing complex workflows.
+  </p>
+  <a href="#booking" class="btn">Book a Meeting</a>
+</section>
+
+<section id="services" class="fade">
+  <h2 class="section-title">What We Do</h2>
+  <div class="grid">
+    <div class="card fade">
+      <h3>Content Clipping</h3>
+      <p>
+        We carefully analyze your long-form content to identify the strongest moments that
+        can be repurposed into short-form clips. Every clip is selected based on engagement
+        potential, clarity, and relevance to your audience.
+      </p>
+    </div>
+    <div class="card fade">
+      <h3>Retention Editing</h3>
+      <p>
+        Our editing process is designed to keep viewers watching from start to finish.
+        We focus on pacing, hooks, subtitles, and structure to maximize watch time.
+      </p>
+    </div>
+    <div class="card fade">
+      <h3>Platform Optimization</h3>
+      <p>
+        Each clip is optimized individually for TikTok, Instagram Reels, and YouTube Shorts,
+        ensuring the correct format, timing, and delivery for each platform.
+      </p>
+    </div>
+    <div class="card fade">
+      <h3>Consistent Delivery</h3>
+      <p>
+        We operate on a structured workflow that guarantees consistent delivery without
+        delays, helping you maintain momentum and grow steadily.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="why" class="fade">
+  <h2 class="section-title">Why Choose Us?</h2>
+  <div class="grid">
+    <div class="card fade">
+      <h3>Low Pricing</h3>
+      <p>
+        Our pricing is designed to be accessible for creators and growing brands. We focus
+        on delivering real value instead of inflated packages, allowing you to scale without
+        overspending.
+      </p>
+    </div>
+    <div class="card fade">
+      <h3>Cheaper Than Ads</h3>
+      <p>
+        Organic short-form content builds long-term visibility and trust. Unlike paid ads,
+        your content continues to perform and bring value even after it’s published.
+      </p>
+    </div>
+    <div class="card fade">
+      <h3>Quality Focused</h3>
+      <p>
+        We prioritize clean visuals, brand-safe messaging, and professional edits so your
+        content always reflects credibility and quality.
+      </p>
+    </div>
+    <div class="card fade">
+      <h3>Simple Workflow</h3>
+      <p>
+        No complicated dashboards or lengthy onboarding. You send your content, we handle
+        the rest — keeping everything simple and efficient.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="work" class="fade">
+  <h2 class="section-title">Why Work With Us?</h2>
+  <div class="faq">
+    <div class="faq-item fade">
+      <p>
+        Partnering with WeClip Agency means working with a team that understands the
+        importance of consistency, quality, and clarity in short-form content. We reduce
+        your workload by handling the entire clipping and editing process while keeping
+        you in full control. Our goal is to become a long-term partner that supports your
+        growth through reliable execution and transparent communication.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="faqs" class="fade">
+  <h2 class="section-title">FAQs</h2>
+  <div class="faq">
+    <div class="faq-item fade">
+      <h4>Do you need access to my social media accounts?</h4>
+      <p>
+        No. We never require access to your social media accounts. You retain full ownership
+        and control at all times. We only need your long-form content or source files and
+        deliver ready-to-post short-form videos.
+      </p>
+    </div>
+    <div class="faq-item fade">
+      <h4>Is this better than running ads?</h4>
+      <p>
+        Yes. Organic short-form content builds trust, authority, and long-term visibility.
+        Unlike ads, your content continues working for you without recurring costs.
+      </p>
+    </div>
+    <div class="faq-item fade">
+      <h4>Who is this service best suited for?</h4>
+      <p>
+        Our service is ideal for creators, podcasts, educators, and brands producing
+        long-form content who want consistent short-form output without increasing workload.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="reviews" class="fade">
+  <h2 class="section-title">Client Reviews</h2>
+  <div class="testimonials">
+    <div class="testimonial fade">
+      <p>"WeClip helped us stay consistent with short-form content without adding pressure on our internal team."</p>
+      <h4>— US Podcast Brand</h4>
+    </div>
+    <div class="testimonial fade">
+      <p>"Professional edits, smooth communication, and reliable delivery."</p>
+      <h4>— US-Based Creator</h4>
+    </div>
+    <div class="testimonial fade">
+      <p>"A dependable agency for turning long-form content into high-quality shorts."</p>
+      <h4>— European Digital Brand</h4>
+    </div>
+  </div>
+</section>
+
+<section id="booking" class="booking fade">
+  <h2 class="section-title">Book a Meeting</h2>
+  <p><strong>Discord :</strong> just_kronex</p>
+  <p><strong>Email :</strong> Soon</p>
+</section>
+
+<footer>
+  © 2026 WeClip Agency. All rights reserved.
+</footer>
+
+<script>
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+    }
+  });
+},{threshold:0.15});
+document.querySelectorAll(".fade").forEach(el=>observer.observe(el));
+</script>
+
+</body>
+</html>
